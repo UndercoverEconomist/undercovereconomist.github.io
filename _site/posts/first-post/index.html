@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Blog Post</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header>
+    <h1><a href="/">My Blog</a></h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+</header>
+    <main>
+        <article>
+    <h1>My First Blog Post</h1>
+    <time datetime="2023-07-28T00:00:00">28 Jul 2023</time>
+    <h1>Welcome to my first blog post</h1>
+<p>Here's some example content with a D3.js visualization:</p>
+<div id="chart"></div>
+<script>
+const data = [
+  {year: 2010, value: 10},
+  {year: 2011, value: 20},
+  {year: 2012, value: 15},
+  {year: 2013, value: 25},
+  {year: 2014, value: 22}
+];
+
+const margin = {top: 20, right: 20, bottom: 30, left: 40};
+const width = 400 - margin.left - margin.right;
+const height = 300 - margin.top - margin.bottom;
+
+const svg = d3.select("#chart")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+const x = d3.scaleBand()
+  .range([0, width])
+  .padding(0.1);
+
+const y = d3.scaleLinear()
+  .range([height, 0]);
+
+x.domain(data.map(d => d.year));
+y.domain([0, d3.max(data, d => d.value)]);
+
+svg.selectAll(".bar")
+  .data(data)
+  .enter().append("rect")
+    .attr("class", "bar")
+    .attr("x", d => x(d.year))
+    .attr("width", x.bandwidth())
+    .attr("y", d => y(d.value))
+    .attr("height", d => height - y(d.value));
+
+svg.append("g")
+  .attr("transform", `translate(0,${height})`)
+  .call(d3.axisBottom(x));
+
+svg.append("g")
+  .call(d3.axisLeft(y));
+</script>
+<p>And here's some example code:</p>
+<pre><code class="language-javascript">function greeting(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greeting(&quot;World&quot;));
+</code></pre>
+
+</article>
+    </main>
+    <footer>
+    <p>&copy;  My Blog. All rights reserved.</p>
+</footer>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

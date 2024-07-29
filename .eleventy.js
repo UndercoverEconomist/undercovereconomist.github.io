@@ -1,16 +1,28 @@
+const { DateTime } = require("luxon");
+
 module.exports = function(eleventyConfig) {
-  // Copy the `assets` directory to the output
-  eleventyConfig.addPassthroughCopy("src/assets");
+  // Define the dateIso filter
+  eleventyConfig.addFilter("dateIso", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toISO({
+      suppressMilliseconds: true,
+      includeOffset: false
+    });
+  });
+
+  // Define the dateReadable filter
+  eleventyConfig.addFilter("dateReadable", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("dd LLL yyyy");
+  });
+
+  // Passthrough copy for assets
+  eleventyConfig.addPassthroughCopy({
+    "src/assets": "assets"
+  });
 
   return {
     dir: {
       input: "src",
-      output: ".",
-      includes: "_includes",
-      data: "_data"
-    },
-    templateFormats: ["njk", "md"],
-    markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk"
+      output: "_site"
+    }
   };
 };
