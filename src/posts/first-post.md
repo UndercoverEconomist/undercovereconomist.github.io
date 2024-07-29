@@ -2,6 +2,7 @@
 layout: layouts/post.njk
 title: My First Blog Post
 date: 2023-07-28
+performance: "Some performance data"
 ---
 
 # Welcome to my first blog post
