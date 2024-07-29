@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "Undercover Economist Blog",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "serve": "npx @11ty/eleventy --serve"
+    "build": "eleventy",
+    "deploy": "npm run build && gh-pages -d _site"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "gh-pages": "^6.1.1"
   },
   "main": ".eleventy.js",
   "dependencies": {
