@@ -3,14 +3,6 @@ layout: single
 title: "About"
 permalink: /about/
 author_profile: true
-defaults:
-  # _pages
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: single
-      author_profile: true
 ---
 
 **July 30<sup>th</sup>, 2024**
