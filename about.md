@@ -1,7 +1,8 @@
 ---
 layout: single
-title: About
+title: "About"
 permalink: /about/
+author_profile: true
 ---
 
 **July 30<sup>th</sup>, 2024**
