@@ -28,9 +28,27 @@ twitter_username: uceconomist
 github_username:  UndercoverEconomist
 
 # Build settings
-theme: minima
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
+
+# Change this to modify the width of the site
+max-width: 1200px
+
+# Social links (optional)
+author:
+  name: Undercover Economist
+  avatar: /assets/images/avatar.png
+  bio: "Your bio goes here."
+
+# Top navigation links
+header_pages:
+  - _pages/finance.md
+  - _pages/economy.md
+  - _pages/ai-ml.md
+  - _pages/cpp.md
+  - _pages/open-source-finance.md
+  - _pages/about.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
